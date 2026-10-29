@@ -38,6 +38,8 @@ android {
     }
     buildFeatures {
         compose = true
+        //cap 04
+        buildConfig = true
     }
 }
 
@@ -77,7 +79,19 @@ dependencies {
     //cap 03 componentes de prueba
     testImplementation("org.mockito:mockito-core:5.11.0")
     testImplementation("org.mockito.kotlin:mockito-kotlin:5.2.1")
-
-
+    //Cap 04
+    implementation(platform(libs.okhttp.bom))
+    implementation(libs.okhttp.client)
+    implementation(libs.okhttp.logging)
+    implementation(libs.retrofit.client)
+    implementation(libs.retrofit.serialization)
+    implementation(libs.coroutines.android)
+    implementation(libs.lifecycle.runtime.compose)
+    implementation(libs.lifecycle.viewmodel.ktx)
+    implementation(libs.serialization.json)
+    testImplementation(platform(libs.okhttp.bom))
+    testImplementation(libs.okhttp.mockwebserver)
+    testImplementation(libs.coroutines.test)
+    testImplementation(libs.junit)
 
 }

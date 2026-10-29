@@ -13,6 +13,12 @@ coroutines = "1.10.1"
 turbine = "1.1.0"
 #cap 2
 navigation = "2.10.2"
+#cap 04
+retrofit = "3.0.0"
+okhttp = "4.12.0"
+serializacionJson = "1.8.1"
+lifecycle = "2.8.7"
+
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,9 +40,25 @@ turbine = { group = "app.cash.turbine", name = "turbine", version.ref = "turbine
 #cap 02
 androidx-navigation-compose ={module="androidx.navigation:navigation-compose", version.ref = "navigation"}
 
+# Cap04 - Librerías para la comunicación con APIs REST, gestión de solicitudes HTTP,
+# procesamiento de datos JSON, ejecución de tareas asíncronas, manejo del ciclo
+# de vida de Android y realización de pruebas de comunicación con servidores.
+
+okhttp-bom = { module = "com.squareup.okhttp3:okhttp-bom", version.ref = "okhttp" }
+okhttp-client = { module = "com.squareup.okhttp3:okhttp" }
+okhttp-logging = { module = "com.squareup.okhttp3:logging-interceptor" }
+okhttp-mockwebserver = { module = "com.squareup.okhttp3:mockwebserver" }
+retrofit-client = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+retrofit-serialization = { module = "com.squareup.retrofit2:converter-kotlinx-serialization", version.ref = "retrofit" }
+serialization-json = { module = "org.jetbrains.kotlinx:kotlinx-serialization-json", version.ref = "serializacionJson" }
+coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "coroutines" }
+coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+lifecycle-runtime-compose = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle" }
+lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
+
+
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 #cap 02
 kotlin-serialization ={id="org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin"}
-

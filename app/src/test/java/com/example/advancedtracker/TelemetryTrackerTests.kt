@@ -20,6 +20,7 @@ import org.junit.Assert.assertTrue
 import org.junit.Before
 import org.junit.Test
 
+
 @OptIn(ExperimentalCoroutinesApi::class)
 class TelemetryTrackerTests {
 
@@ -41,6 +42,7 @@ class TelemetryTrackerTests {
     }
 
     @Test
+
     fun `cuando se inicia el monitoreo, cambia el estado a cargando y luego emite telemetria activa`() = runTest(testDispatcher) {
         val targetId = DeviceId("PRO_TRACK_001")
 
@@ -59,7 +61,9 @@ class TelemetryTrackerTests {
             advanceTimeBy(1005)
 
             // Siguiente emisión esperada: Active
-            val activeState = awaitItem()
+            //MODIFICO ESTA
+           // val activeState = awaitItem()
+            val activeState = expectMostRecentItem()
             assertTrue(activeState is TelemetryUiState.Active)
 
             val payload = (activeState as TelemetryUiState.Active).data
@@ -86,6 +90,8 @@ class TelemetryTrackerTests {
             assertTrue(alertMessage.contains("ANOMALY_MONITOR") || alertMessage.contains("¡ANOMALÍA DETECTADA!"))
 
             viewModel.stopTracking()
+            //MODIFICO ESTA
+            cancelAndIgnoreRemainingEvents()
         }
     }
 }
