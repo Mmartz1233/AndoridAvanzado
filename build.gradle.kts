@@ -9,5 +9,7 @@ plugins {
     id("com.google.dagger.hilt.android") version "2.60.1" apply false
     //para precesar anotaciones
     id("com.google.devtools.ksp") version "2.3.6" apply false
+    //cap 05
+    alias(libs.plugins.room) apply false
 
 }

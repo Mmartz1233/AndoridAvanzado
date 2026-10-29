@@ -5,5 +5,9 @@
             android:name="com.example.advancedtracker.ui.remote.RemoteTelemetryActivity"
             android:exported="true"
             android:label="Telemetría REST" />
+        <!-- Cap 05 -->
+        <activity
+            android:name="com.example.advancedtracker.ui.persistence.PersistenceLabActivity"
+            android:exported="true" />
     </application>
 </manifest>

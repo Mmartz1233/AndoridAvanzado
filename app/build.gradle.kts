@@ -6,6 +6,9 @@ plugins {
     //cap 03
     id("com.google.dagger.hilt.android")
     id("com.google.devtools.ksp")
+    //cap 05
+
+    alias(libs.plugins.room)
 
 }
 
@@ -41,6 +44,9 @@ android {
         //cap 04
         buildConfig = true
     }
+}
+room {
+    schemaDirectory("$projectDir/schemas")
 }
 
 dependencies {
@@ -93,5 +99,16 @@ dependencies {
     testImplementation(libs.okhttp.mockwebserver)
     testImplementation(libs.coroutines.test)
     testImplementation(libs.junit)
+    //cap 05
+    implementation(libs.room.runtime)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
+    implementation(libs.datastore.preferences)
+    androidTestImplementation(libs.room.testing)
+
+    // Reutiliza tus aliases y versiones actuales si estos artefactos ya existen.
+    androidTestImplementation("androidx.test:core-ktx:1.7.0")
+    androidTestImplementation("androidx.test:runner:1.7.0")
+    androidTestImplementation("androidx.test.ext:junit:1.3.0")
 
 }
